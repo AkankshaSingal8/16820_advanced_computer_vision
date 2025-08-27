@@ -14,7 +14,7 @@ def t1(L):
 
     Hint: vstack/hstack/dstack, no for loop
     """
-    return None
+    return np.vstack(L)
 
 
 def t2(X):
