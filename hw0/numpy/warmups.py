@@ -202,8 +202,8 @@ def w14(v):
     The L2 norm of v: norm = (sum_i^N v[i]^2)^(1/2)
     You MAY NOT use np.linalg.norm
     """
-    
-    return 
+    norm = np.sqrt(np.sum(v ** 2))
+    return norm
 
 
 def w15(X, i):
@@ -215,7 +215,7 @@ def w15(X, i):
     Returns:
     Numpy array of shape (M,) giving the ith row of X
     """
-    return None
+    return X[i]
 
 
 def w16(X):
@@ -241,7 +241,7 @@ def w17(X):
 
     Hint: np.sum has an optional "axis" argument
     """
-    return None
+    return np.sum(X, axis = 1)
 
 
 def w18(X):
@@ -254,7 +254,7 @@ def w18(X):
 
     Hint: Same as above
     """
-    return None
+    return np.sum(X, axis = 0)
 
 
 def w19(X):
@@ -267,7 +267,7 @@ def w19(X):
 
     Hint: np.sum has an optional "keepdims" argument
     """
-    return None
+    return np.sum(X, axis = 1, keepdims =  True)
 
 
 def w20(X):
@@ -278,4 +278,4 @@ def w20(X):
     Returns:
     A numpy array S of shape (N, 1) where S[i] is the L2 norm of row i of X
     """
-    return None
+    return np.sqrt(np.sum(X ** 2, axis = 1, keepdims =  True))
