@@ -11,7 +11,8 @@ def w1(X):
 
     Hint: Trust that numpy will do the right thing
     """
-    return None
+    Y = X * 10 + 100
+    return Y
 
 
 def w2(X, Y):
@@ -25,7 +26,8 @@ def w2(X, Y):
 
     Hint: Trust that numpy will do the right thing
     """
-    return None
+    Z = X + 10 * Y
+    return Z
 
 
 def w3(X, Y):
@@ -39,7 +41,8 @@ def w3(X, Y):
 
     Hint: By analogy to +, * will do the same thing
     """
-    return None
+    Z = X * Y - 10
+    return Z
 
 
 def w4(X, Y):
@@ -62,7 +65,8 @@ def w4(X, Y):
     Is this matrix multiplication?
 
     """
-    return None
+    Z = X @ Y
+    return Z
 
 
 def w5(X):
@@ -75,7 +79,8 @@ def w5(X):
 
     Hint: Check .astype() !
     """
-    return None
+    Z = X.astype(dtype = np.int32)
+    return Z
 
 
 def w6(X, Y):
@@ -88,7 +93,8 @@ def w6(X, Y):
     A numpy array Z such that Z[i] = float(X[i]) / float(Y[i])
 
     """
-    return None
+    Z = X.astype(dtype = np.float32) / Y.astype(dtype = np.float32)
+    return Z
 
 
 def w7(X):
@@ -104,7 +110,7 @@ def w7(X):
     1) np.reshape
     2) You can specify an unknown dimension as -1
     """
-    return None
+    return np.reshape(X, (-1, 1))
 
 
 def w8(N):
@@ -118,7 +124,7 @@ def w8(N):
     Hint: The error "data type not understood" means you probably called
     np.ones or np.zeros with two arguments, instead of a tuple for the shape
     """
-    return None
+    return np.zeros((N, 2 * N))
 
 
 def w9(X):
@@ -131,7 +137,7 @@ def w9(X):
 
     Hint: Try boolean array indexing
     """
-    return None
+    return X > 0.5
 
 
 def w10(N):
@@ -144,7 +150,7 @@ def w10(N):
 
     Hint: np.arange
     """
-    return None
+    return np.arange(N)
 
 
 def w11(A, v):
@@ -156,7 +162,7 @@ def w11(A, v):
     Returns:
     Numpy array of shape (N, 1) giving the matrix-vector product Av
     """
-    return None
+    return A @ v
 
 
 def w12(A, v):
@@ -169,7 +175,7 @@ def w12(A, v):
     Numpy array of shape (N, 1) giving the matrix-vector product of the inverse
     of A and v: A^-1 v
     """
-    return None
+    return np.linalg.inv(A) @ v
 
 
 def w13(u, v):
@@ -183,7 +189,8 @@ def w13(u, v):
 
     Hint: .T
     """
-    return None
+    # inner product = dot product
+    return u.T @ v
 
 
 def w14(v):
@@ -195,7 +202,8 @@ def w14(v):
     The L2 norm of v: norm = (sum_i^N v[i]^2)^(1/2)
     You MAY NOT use np.linalg.norm
     """
-    return None
+    
+    return 
 
 
 def w15(X, i):
@@ -220,7 +228,7 @@ def w16(X):
 
     Hint: np.sum
     """
-    return None
+    return np.sum(X)
 
 
 def w17(X):
