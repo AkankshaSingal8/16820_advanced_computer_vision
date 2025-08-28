@@ -34,7 +34,8 @@ def t2(X):
     2) np.argmin
     3) Watch rows and columns!
     """
-    return None
+    eigen_value, eigen_vector = np.linalg.eig(X)
+    return eigen_vector[:,np.argmin(eigen_value)]
 
 
 def t3(X):
@@ -54,7 +55,7 @@ def t3(X):
     2) X[S] = v assigns the value v to all entires of X corresponding to
        true values of S.
     """
-    return None
+    return np.maximum(X, 0)
 
 
 def t4(R, X):
@@ -74,7 +75,7 @@ def t4(R, X):
        by the matrix R.
     2) .T gives the transpose of a matrix
     """
-    return None
+    return (R @ X.T).T
 
 
 def t5(X):
@@ -94,7 +95,7 @@ def t5(X):
        from rows y0 to (but not including!) y1
        from columns x0 (but not including!) x1
     """
-    return None
+    return X[:4, :4] - X[-4:, -4:]
 
 
 def t6(N):
@@ -109,7 +110,9 @@ def t6(N):
     Par: 6 lines
     Instructor: 3 lines
     """
-    return None
+    X = np.ones((N,N))
+    X[:5, :], X[-5:, :], X[:, :5], X[:, -5:] = 0, 0, 0, 0
+    return X
 
 
 def t7(X):
@@ -133,7 +136,7 @@ def t7(X):
     4) Elementwise operations between an array of shape (N, M) and an array of
        shape (N,) won't work -- try reshaping
     """
-    return None
+    return X / np.linalg.norm(X, axis=1, keepdims=True)
 
 
 def t8(X):
@@ -153,7 +156,7 @@ def t8(X):
     2) Normalize the rows individually
     3) You may have to reshape
     """
-    return None
+    return (X - X.mean(axis = 1, keepdims = True))/X.std(axis = 1, keepdims = True)
 
 
 def t9(q, k, v):
@@ -175,7 +178,9 @@ def t9(q, k, v):
     2) Recall that np.sum has useful "axis" and "keepdims" options
     3) np.exp and friends apply elementwise to arrays
     """
-    return None
+    # sub = np.exp(- (q - k) ** 2)
+    # res = np.sum(sub, axis=1, keepdims=True)  * v
+    # return res
 
 
 def t10(Xs):
@@ -224,6 +229,7 @@ def t11(X):
        causing the square root to crash. Just take max(0, value) before the
        square root. Seems to occur on Macs.
     """
+
     return None
 
 
@@ -260,7 +266,7 @@ def t13(q, V):
 
     Hint: np.argmax
     """
-    return None
+    return np.argmax(q @ V.T)
 
 
 def t14(X, y):
@@ -295,7 +301,7 @@ def t15(X, Y):
 
     Hint: np.cross
     """
-    return None
+    return np.cross(X, Y)
 
 
 def t16(X):
@@ -315,7 +321,8 @@ def t16(X):
     1) If it doesn't broadcast, reshape or np.expand_dims
     2) X[:, -1] gives the last column of X
     """
-    return None
+    
+    return X / X[:, -1]
 
 
 def t17(X):
@@ -333,7 +340,7 @@ def t17(X):
 
     Hint: np.hstack, np.ones
     """
-    return None
+    return np.hstack([X, np.ones((X.shape[0], 1))])
 
 
 def t18(N, r, x, y):
