@@ -249,7 +249,8 @@ def t12(X, Y):
 
     Hints: Similar to previous problem
     """
-    return None
+    D = X ** 2
+    return D
 
 
 def t13(q, V):
@@ -283,7 +284,7 @@ def t14(X, y):
 
     Hint: np.linalg.lstsq or np.linalg.solve
     """
-    return None
+    return np.linalg.lstsq(X, y, rcond = 1)[0]
 
 
 def t15(X, Y):
@@ -322,7 +323,7 @@ def t16(X):
     2) X[:, -1] gives the last column of X
     """
     
-    return X / X[:, -1]
+    return X[:, :-1] / np.expand_dims(X[:, -1], axis = 1)
 
 
 def t17(X):
@@ -364,7 +365,9 @@ def t18(N, r, x, y):
     it without them, but np.meshgrid and np.arange are easier to understand. 
     2) Arrays have an astype method
     """
-    return None
+
+    X, Y = np.meshgrid(np.arange(N), np.arange(N))
+    return (np.sqrt((X - x) **2 + (Y - y) ** 2) < r).astype(float)
 
 
 def t19(N, s, x, y):
@@ -382,7 +385,9 @@ def t19(N, s, x, y):
     Par: 3 lines
     Instructor: 2 lines
     """
-    return None
+
+    X, Y = np.meshgrid(np.arange(N), np.arange(N))
+    return np.exp((-((X - x) ** 2 + (Y - y) ** 2)) / s ** 2)
 
 
 def t20(N, v):
@@ -404,4 +409,6 @@ def t20(N, v):
        (The sign of the numerator tells which side the point is on)
     2) np.abs
     """
-    return None
+
+    X, Y = np.meshgrid(np.arange(N), np.arange(N))
+    return np.abs(v[0] * X + v[1] * Y + v[2]) / np.sqrt(v[0] ** 2 + v[1] ** 2)
