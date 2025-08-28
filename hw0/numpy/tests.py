@@ -178,9 +178,9 @@ def t9(q, k, v):
     2) Recall that np.sum has useful "axis" and "keepdims" options
     3) np.exp and friends apply elementwise to arrays
     """
-    # sub = np.exp(- (q - k) ** 2)
-    # res = np.sum(sub, axis=1, keepdims=True)  * v
-    # return res
+    
+    norm = np.sum((q - k) ** 2, axis=1, keepdims=True)
+    return np.sum(np.exp(- norm) * v)
 
 
 def t10(Xs):
@@ -204,7 +204,10 @@ def t10(Xs):
     5) Our 3-line solution uses no loops, and uses the algebraic trick from the
        next problem.
     """
-    return None
+    C = np.array([X.mean(axis=0) for X in Xs])
+    c_norm = np.sum(C ** 2, axis = 1, keepdims = True)
+    R = c_norm + c_norm.T - 2 * (C @ C.T)
+    return np.sqrt(np.maximum(R, 0))
 
 
 def t11(X):
@@ -230,8 +233,8 @@ def t11(X):
        square root. Seems to occur on Macs.
     """
 
-    return None
-
+    x_norm = np.sum(X ** 2, axis = 1, keepdims = True)
+    return np.sqrt(np.maximum((x_norm + x_norm.T - 2 * (X @ X.T)), 0))
 
 def t12(X, Y):
     """
@@ -249,8 +252,9 @@ def t12(X, Y):
 
     Hints: Similar to previous problem
     """
-    D = X ** 2
-    return D
+    x_norm = np.sum(X ** 2, axis = 1, keepdims = True)
+    y_norm = np.sum(Y ** 2, axis = 1, keepdims = True)
+    return np.sqrt(np.maximum((x_norm + y_norm.T - 2 * (X @ Y.T)), 0))
 
 
 def t13(q, V):
