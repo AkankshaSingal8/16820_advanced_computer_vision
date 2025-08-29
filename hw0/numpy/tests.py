@@ -136,7 +136,7 @@ def t7(X):
     4) Elementwise operations between an array of shape (N, M) and an array of
        shape (N,) won't work -- try reshaping
     """
-    return X / np.linalg.norm(X, axis=1, keepdims=True)
+    return X / np.linalg.norm(X, axis = 1, keepdims = True)
 
 
 def t8(X):
@@ -179,7 +179,7 @@ def t9(q, k, v):
     3) np.exp and friends apply elementwise to arrays
     """
     
-    norm = np.sum((q - k) ** 2, axis=1, keepdims=True)
+    norm = np.sum((q - k) ** 2, axis = 1, keepdims = True)
     return np.sum(np.exp(- norm) * v)
 
 
@@ -204,7 +204,8 @@ def t10(Xs):
     5) Our 3-line solution uses no loops, and uses the algebraic trick from the
        next problem.
     """
-    C = np.array([X.mean(axis=0) for X in Xs])
+
+    C = np.array([X.mean(axis = 0) for X in Xs])
     c_norm = np.sum(C ** 2, axis = 1, keepdims = True)
     R = c_norm + c_norm.T - 2 * (C @ C.T)
     return np.sqrt(np.maximum(R, 0))
